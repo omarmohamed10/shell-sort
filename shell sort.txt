@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+void display(int arr[], int size) {
+	int i;
+	for(i = 0; i < size; i++) {
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
+}
+
+void Sort(int a[] , int n){
+
+
+int gap, i , j , val;
+gap = n/2; /// first gap equal size / 2
+while(gap > 0){
+
+
+    i = gap;
+
+    while(i < n){
+
+        j = i ;
+        val = a[i];
+        while(j>=gap && a[j-gap] > val) {       // will do the insertion sort of the gapped elements
+
+                a[j] = a[j-gap] ;
+                j-=gap;
+        }
+        a[j] = val;
+        i++;
+
+    }
+    gap/=2; /// reduce gap every step
+}
+
+}
+
+int main() {
+
+
+	int arr[] = { 3 , 2 , 4  , 1  , 5 ,  8 ,  6};
+	int n = 7;
+
+	display(arr, n);
+
+	Sort(arr, n);
+
+	display(arr, n);
+
+	return 0;
+}
